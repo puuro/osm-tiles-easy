@@ -1,5 +1,6 @@
 # osm-tiles-easy
-With these scripts you can start generating your own Openstreetmaps tiles on your virtual private server. This was tested on AWS with Ubuntu Server 14.04 in August 2016.
+I once wanted to generate OSM tiles. It took some time to get it working. There are some tutorials in the interwebs but many of them are years old. In case someone is struggling with it, here is a working tutorial to get generating tiles in 2016.
+With these scripts you can start generating your own Openstreetmaps tiles on your virtual private server. This was tested on an empty Ubuntu Server 14.04 in AWS in August 2016.
 
 Step 0. This is not probably needed but it removes a warning about locales.
 
@@ -10,7 +11,8 @@ LC_ALL=en_US.UTF-8
 LANG=en_US.UTF-8
 LANGUAGE=en_US.UTF-8
 (reconnect ssh to see the warning is gone)
-	1.	Install Mapnik
+
+Step 1.	Install Mapnik
 sudo add-apt-repository ppa:mapnik/nightly-2.3
 
 sudo apt-get update
@@ -25,7 +27,7 @@ import mapnik
 (This shouldn't give errors)
 exit()
 
-	2.	Postgis
+Step 2. Install postgres database with postgis extension
 
 sudo apt-get install postgresql postgresql-contrib postgis
 sudo apt-get install postgresql-9.3-postgis-scripts
@@ -41,14 +43,14 @@ CREATE EXTENSION postgis;
 CREATE EXTENSION postgis_topology;
 \q
 
-	3.	Get an example OSM data file and convert it to .osm
+Step 3. Get an example OSM data file and convert it to .osm
 The data file is small and it doesn't take long time to process.
 
 sudo apt-get install osmctools
 sudo wget tekieki.fi/file/oulu.osm.pbf
 sudo osmconvert oulu.osm.pbf > oulu.osm
 
-	4.	Osm2pgsql
+Step 4. Populate the database Osm2pgsql
 
 sudo apt-get install osm2pgsql
 
@@ -65,8 +67,8 @@ sudo service postgresql reload
 sudo osm2pgsql -s -U postgres -W -d gis oulu.osm
 (password ‘kukka’)
 
-	5.	Mapnik_stylesheets
- 
+Step 5. Let's generate tiles with Mapnik_stylesheets
+
 sudo apt-get install git unzip zip
 
 sudo apt-get install python-psycopg2 python-shapely python-gdal gdal-bin unifont fonts-dejavu-extra
@@ -91,7 +93,7 @@ sudo sh gen.sh
 AAAND YOU ARE GENERATING TILES!
 The tiles in this example are in /home/ubuntu/mapnik-stylesheets/mapnik-stylesheets/tiles folder.
 
-	6.	Install Apache server and make a simple page to display your tiles
+Step 6.	Install Apache server and make a simple page to display your tiles
 
 sudo apt-get install apache2
 
@@ -99,7 +101,7 @@ cd /var/www/html
 
 sudo rm index.html
 
-This is a file that contains small website that has a leaflet map displaying your tiles:
+Following file contains small website that has a leaflet map displaying your tiles. You may as well write it yourself.
 wget tekieki.fi/file/kartta.zip
 sudo unzip kartta.zip 
 
