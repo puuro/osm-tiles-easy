@@ -6,17 +6,19 @@ Step 0. This is not probably needed but it removes a warning about locales.
 
 Use text editor of your choice. I used vi.
 
-`sudo nano /etc/environment`
+```
+sudo nano /etc/environment
+```
 add following lines:
 ```
 LC_ALL=en_US.UTF-8
 LANG=en_US.UTF-8
 LANGUAGE=en_US.UTF-8
 ```
-
 (reconnect ssh to see the warning is gone)
 
 Step 1.	Install Mapnik
+```
 sudo add-apt-repository ppa:mapnik/nightly-2.3
 
 sudo apt-get update
@@ -24,6 +26,7 @@ sudo apt-get update
 sudo apt-get install libmapnik libmapnik-dev mapnik-utils python-mapnik
 
 sudo apt-get install mapnik-input-plugin-gdal mapnik-input-plugin-ogr mapnik-input-plugin-postgis mapnik-input-plugin-sqlite mapnik-input-plugin-osm
+```
 
 To test Mapnik is installed type:
 python
