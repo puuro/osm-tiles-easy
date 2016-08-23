@@ -50,7 +50,7 @@ sudo -u postgres psql
 ```
 Then some postgres commands:
 ```
-ALTER USER gisuser WITH PASSWORD ‘kakka’;
+ALTER USER gisuser WITH PASSWORD ‘kukka’;
 \c gis
 CREATE EXTENSION postgis;
 CREATE EXTENSION postgis_topology;
