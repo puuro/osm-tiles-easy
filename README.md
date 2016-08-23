@@ -2,7 +2,7 @@
 I once wanted to generate OSM tiles. It took some time to get it working. There are some tutorials in the interwebs but many of them are years old. In case someone is struggling with it, here is a working tutorial to get generating tiles in 2016.
 With these scripts you can start generating your own Openstreetmaps tiles on your virtual private server. This was tested on an empty Ubuntu Server 14.04 in AWS in August 2016.
 
-Step 0. This is not probably needed but it removes a warning about locales.
+#### Step 0. This is not probably needed but it removes a warning about locales.
 
 Use text editor of your choice. I used vi.
 
@@ -17,7 +17,7 @@ LANGUAGE=en_US.UTF-8
 ```
 (reconnect ssh to see the warning is gone)
 
-Step 1.	Install Mapnik
+### Step 1.	Install Mapnik
 ```
 sudo add-apt-repository ppa:mapnik/nightly-2.3
 
@@ -36,7 +36,7 @@ exit()
 ```
 (This shouldn't give errors)
 
-Step 2. Install postgres database with postgis extension
+### Step 2. Install postgres database with postgis extension
 ```
 sudo apt-get install postgresql postgresql-contrib postgis
 sudo apt-get install postgresql-9.3-postgis-scripts
@@ -55,14 +55,14 @@ CREATE EXTENSION postgis_topology;
 \q
 ```
 
-Step 3. Get an example OSM data file and convert it to .osm
+### Step 3. Get an example OSM data file and convert it to .osm
 The data file is small and it doesn't take long time to process.
 ```
 sudo apt-get install osmctools
 sudo wget tekieki.fi/file/oulu.osm.pbf
 sudo osmconvert oulu.osm.pbf > oulu.osm
 ```
-Step 4. Populate the database Osm2pgsql
+### Step 4. Populate the database Osm2pgsql
 ```
 sudo apt-get install osm2pgsql
 
@@ -83,7 +83,7 @@ sudo osm2pgsql -s -U postgres -W -d gis oulu.osm
 ```
 (password ‘kukka’)
 
-Step 5. Let's generate tiles with Mapnik_stylesheets
+### Step 5. Let's generate tiles with Mapnik_stylesheets
 ```
 sudo apt-get install git unzip zip
 
@@ -114,7 +114,7 @@ sudo sh gen.sh
 AAAND YOU ARE GENERATING TILES!
 The tiles in this example are in /home/ubuntu/mapnik-stylesheets/mapnik-stylesheets/tiles folder.
 
-Step 6.	Install Apache server and make a simple page to display your tiles
+#### Step 6.	Install Apache server and make a simple page to display your tiles
 ```
 sudo apt-get install apache2
 
