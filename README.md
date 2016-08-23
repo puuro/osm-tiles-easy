@@ -108,3 +108,4 @@ sudo unzip kartta.zip 
 sudo cp -r /home/ubuntu/mapnik-stylesheets/mapnik-stylesheets/tiles .
 
 Navigate to your site with browser to see the end result:
+![Alt text](map1.png?raw=true "Optional Title")
