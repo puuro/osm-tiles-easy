@@ -5,11 +5,15 @@ With these scripts you can start generating your own Openstreetmaps tiles on you
 Step 0. This is not probably needed but it removes a warning about locales.
 
 Use text editor of your choice. I used vi.
+
 `sudo nano /etc/environment`
 add following lines:
+```
 LC_ALL=en_US.UTF-8
 LANG=en_US.UTF-8
 LANGUAGE=en_US.UTF-8
+```
+
 (reconnect ssh to see the warning is gone)
 
 Step 1.	Install Mapnik
