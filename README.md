@@ -1,7 +1,7 @@
 # osm-tiles-easy
 
 ### An example: how to generate tiles from Openstreetmap data on your server.
-I once wanted to generate OSM tiles. It took some time to get it working. There are some tutorials in the interwebs but many of them are years old. In case someone is struggling with it, here is a working tutorial to get generating tiles in 2016.
+I once wanted to generate OSM tiles. There are some tutorials in the interwebs but many of them are years old. In case someone is struggling with it, here is a working tutorial to get generating tiles in 2016.
 With these scripts you can start generating your own Openstreetmaps tiles on your virtual private server. This was tested on an empty Ubuntu Server 14.04 in AWS in August 2016.
 
 #### Step 0. This is not probably needed but it removes a warning about locales.
