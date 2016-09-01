@@ -97,6 +97,8 @@ cd mapnik-stylesheets
 
 sudo git clone https://github.com/openstreetmap/mapnik-stylesheets.git 
 
+cd mapnik-stylesheets
+
 sudo sh get-coastlines.sh
 ```
 (This takes some time)
