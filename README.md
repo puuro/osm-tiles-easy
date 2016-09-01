@@ -101,7 +101,7 @@ cd mapnik-stylesheets
 
 sudo sh get-coastlines.sh
 ```
-(This takes some time)
+(This may take some time)
 ```
 sudo ./generate_xml.py --dbname gis --host ‘localhost’ --user postgres --port 5432 --password ‘kukka'
 
